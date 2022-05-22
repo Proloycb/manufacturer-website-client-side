@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Western Digital Green SATA 6Gb/s 240GB Internal SSD",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "Western digital green solid state drive has 240 GB storage capacity, SATA 6Gb/s interface, 2.5 / 7mm / M.2 2280 form factor, 0 to 70C operating temperature,100.5 x 69.85 x 70 mm dimension,32.1 g weight.",
+        "img": "https://i.ibb.co/Tg4zXCB/ssd.jpg"
+    },
+    {
+        "name": "MSI H61M-P31 DDR3 Desktop Motherboard",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "Dual memory channel, 100 MHz base clock, 1600 MHz supported with Intel Ivy Bridge processor, 16GB maximum storage, base clock / hyper transport chipset, 1 DVI, 2 DIMM slots, 4 SATAII, 3 audio ports.",
+        "img": "https://i.ibb.co/cyqt3Gb/motherboard.jpg"
+    },
+    {
+        "name": "Gigabyte GeForce GTX 1660 Super OC 6GB Graphics Card",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "192 bit memory BUS, display port 1.4 x 3, 1830 MHz core clock, smooth airflow for better heat dissipation, 3D active fan provide semi-passive cooling, unique blade fan, composite heat-pipe.",
+        "img": "https://i.ibb.co/X8CjKMN/graphics.jpg"
+    },
+    {
+        "name": "Intel Core i5 4th Generation 3.2 GHz Processor",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "Intel processor desktop core i5-4440 4th generation smart cache 6 MB, 3.20 GHz clock speed, 4 processor count, integrated Intel HD graphics, 1024 MB memory storage capacity, 5 GT/s bus speed, DDR3-1333/1600, DDR3L-1333/1600 type memory, Intel HD graphics 4600.",
+        "img": "https://i.ibb.co/bz687Zb/processor.jpg"
+    },
+    {
+        "name": "HP 653955-001 300GB 2.5 SAS Enterprise HDD",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "HP 653955-001 HDD features 6Gb/s data transfer rate, 300GB storage capacity, and 10000 RPM spindle speed.",
+        "img": "https://i.ibb.co/3FC3Mh6/hdd.jpg"
+    },
+    {
+        "name": "Deepcool CF120 Plus Case Fan",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "The CF120 PLUS case fan features 18 individually addressable RGB LEDs that are distributed around the fan blades and housing to create layered lighting effects. Ring + blade A-RGB LED lighting, 120 x 120 x 26.5mm fan dimension.",
+        "img": "https://i.ibb.co/zhPPnwF/cpu.jpg"
+    },
+    {
+        "name": "HP D12-320P1A 320W Power Supply",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "HP D12-320P1A power supply features 320-watts maximum output power, 6-pin + 4-pin used. This power supply provides excellent power efficiency in stressful computing situations without sacrificing performance.",
+        "img": "https://i.ibb.co/6B7W6Sz/power.jpg"
+    },
+    {
+        "name": "SDRW-08D2S-U Eexternal Slim DVD",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "Stylish and portable design, audio CD / video CD / CD-I / CD-extra / photo CD / CD-text / CD-ROM/XA / multi-session CD / CD-R / CD-RW / CD-ROM / DVD±R(SL/DL) / DVD±RW / DVD-ROM(SL/DL) / DVD video disc support, 280g weight, 142 x 142 x 20mm dimension.",
+        "img": "https://i.ibb.co/SNwPSyw/dvd.jpg"
+    },
+    {
+        "name": "4GB DDR3 Desktop RAM",
+        "availableQuantity": "100",
+        "minimumOrderQuantity": "10",
+        "price": "109",
+        "description": "The memory offers extremely reliable, high-performance memory for desktop PC, and SO-DIMMs memory.",
+        "img": "https://i.ibb.co/yPvgpPr/ram.jpg"
+    }
+]
