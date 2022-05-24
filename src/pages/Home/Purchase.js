@@ -74,6 +74,7 @@ const Purchase = () => {
             userEmail: user.email,
             phone: phone,
             address: address,
+            product: name,
             price: totalPrice,
             orderQuantity: orderQuantity,
         }
