@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { toast } from 'react-toastify';
@@ -14,6 +14,7 @@ const Purchase = () => {
     const quantityRef = useRef('');
     const [disable, setDisable] = useState(false);
     const [orderQuantity, setOrderQuantity] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:5000/parts/${id}`)
@@ -35,14 +36,14 @@ const Purchase = () => {
             setDisable(true);
             return;
         }
-        
+
         setOrderQuantity(orderQuantity + 1);
         setDisable(false);
     }
 
     const handleDecrease = () => {
         const minQuantity = parseInt(minimumOrderQuantity);
-        
+
         if (orderQuantity <= minQuantity) {
             toast.error('Your quantity lower than minimum quantity');
             setDisable(true);
@@ -51,7 +52,7 @@ const Purchase = () => {
         setOrderQuantity(orderQuantity - 1);
         setDisable(false);
     }
-    
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -118,9 +119,9 @@ const Purchase = () => {
                         <p><small>Price: ${price}<span class="badge badge-sm ml-1">Per One</span></small></p>
                         <div className='flex items-center'>Order Quantity:
                             <div>
-                                <button onClick={handleDecrease} className='ml-2'><AiOutlineMinus/></button>
+                                <button onClick={handleDecrease} className='ml-2'><AiOutlineMinus /></button>
                                 <input type="text" ref={quantityRef} value={orderQuantity} className="border border-solid text-center w-8 h-5 mr-2 ml-2" />
-                                <button onClick={handleIncrease}><AiOutlinePlus/></button>
+                                <button onClick={handleIncrease}><AiOutlinePlus /></button>
                             </div>
                         </div>
                     </div>
@@ -136,6 +137,7 @@ const Purchase = () => {
                     <button type='submit' className='btn btn-primary text-white w-1/2 mx-auto' disabled={disable}>Order Now</button>
                 </form>
             </div>
+            <button onClick={() => navigate('/dashboard')} to='/dashboard' className='btn btn-primary w-1/4 ml-12 mt-3'>My Orders</button>
         </div>
     );
 };

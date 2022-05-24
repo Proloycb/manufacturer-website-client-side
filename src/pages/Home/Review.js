@@ -15,7 +15,7 @@ const Review = ({ review }) => {
                 <div className="flex items-center">
                     <div class="avatar placeholder">
                         <div class="bg-neutral-focus text-neutral-content rounded-full w-8 mr-3">
-                            <span class="text-xl">{review.name.slice(0, 1)}</span>
+                            <span class="text-xl">{review?.name.slice(0, 1)}</span>
                         </div>
                     </div>
                     <div>
