@@ -79,18 +79,18 @@ const Purchase = () => {
         }
 
         // update quantity 
-        const url = `http://localhost:5000/updateQuantity/${id}`;
-        fetch(url, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({ updatedQuantity }),
-        })
-            .then(res => res.json())
-            .then(data => {
-                refetch();
-            });
+        // const url = `http://localhost:5000/updateQuantity/${id}`;
+        // fetch(url, {
+        //     method: "PUT",
+        //     headers: {
+        //         "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify({ updatedQuantity }),
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         refetch();
+        //     });
 
 
         // booking order

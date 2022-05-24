@@ -19,18 +19,8 @@ const Navbar = () => {
             user && <li><Link to="/dashboard">Dashboard</Link></li>
         }
         <li>{user ? <>
-            <div class="dropdown dropdown-end xs:dropdown-right">
-                <div class="avatar placeholder">
-                    <div class="bg-neutral-focus text-neutral-content rounded-full w-8">
-                        <label tabIndex="0" class="btn m-1 text-xs">{user.displayName.slice(0, 1)}</label>
-                    </div>
-                    <div tabIndex="0" class="dropdown-content menu w-52 p-2 lg:mt-10 shadow bg-blase-200 text-secondary-content">
-                            <h3 class="card-title">{user.displayName}</h3>
-                            <button onClick={logout} className="btn btn-ghost">Sign Out</button>
-                    </div>
-                </div>
-            </div>
-
+            <h5>{user.displayName}</h5>
+            <button onClick={logout} className="btn btn-ghost">Sign Out</button>
         </> : <Link to="/login">Login</Link>}</li>
     </>
     return (
