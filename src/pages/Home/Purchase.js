@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
@@ -10,54 +10,48 @@ import auth from '../../firebase.init';
 const Purchase = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth);
-    const { data: product, isLoading, refetch } = useQuery(['parts', id], () => fetch(`http://localhost:5000/parts/${id}`)
-        .then(res => res.json())
-    );
+    const [product, setProduct] = useState({});
     const quantityRef = useRef('');
     const [disable, setDisable] = useState(false);
-    const [orderQuantity, setOrderQuantity] = useState();
+    const [orderQuantity, setOrderQuantity] = useState(0);
 
-    if (isLoading) {
-        return <Loading />
-    }
+    useEffect(() => {
+        fetch(`http://localhost:5000/parts/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setOrderQuantity(parseInt(data.minimumOrderQuantity));
+                setProduct(data);
+            })
+    }, [id])
 
     const { img, name, description, minimumOrderQuantity, availableQuantity, price } = product;
 
 
-
-    const handleQuantity = (event) => {
-        event.preventDefault();
-        const userQuantity = quantityRef.current.value;
-
-        const newQuantity = parseInt(userQuantity);
-        const minQuantity = parseInt(minimumOrderQuantity);
+    const handleIncrease = () => {
         const quantity = parseInt(availableQuantity);
 
-        if (newQuantity < minQuantity) {
-            toast.error('Your quantity lower than minimum quantity');
-            event.target.reset();
-            setDisable(true);
-            return;
-        }
-        else if (newQuantity > quantity) {
+        if (orderQuantity >= quantity) {
             toast.error('Your quantity higher than available quantity');
-            event.target.reset();
             setDisable(true);
             return;
         }
-        else if (isNaN(newQuantity)) {
-            toast.error('Please enter valid number');
-            event.target.reset();
-            setDisable(true);
-            return;
-        }
-        else {
-            setOrderQuantity(newQuantity);
-            setDisable(false);
-            toast.success('Added your quantity');
-            event.target.reset();
-        }
+        
+        setOrderQuantity(orderQuantity + 1);
+        setDisable(false);
     }
+
+    const handleDecrease = () => {
+        const minQuantity = parseInt(minimumOrderQuantity);
+        
+        if (orderQuantity <= minQuantity) {
+            toast.error('Your quantity lower than minimum quantity');
+            setDisable(true);
+            return;
+        }
+        setOrderQuantity(orderQuantity - 1);
+        setDisable(false);
+    }
+    
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -123,10 +117,11 @@ const Purchase = () => {
                         <p><small>Minimum Order Quantity: {minimumOrderQuantity}</small></p>
                         <p><small>Price: ${price}<span class="badge badge-sm ml-1">Per One</span></small></p>
                         <div className='flex items-center'>Order Quantity:
-                            <form onSubmit={handleQuantity}>
-                                <input type="text" ref={quantityRef} className="border border-solid text-center w-8 h-5 mr-2 ml-2" />
-                                <button type='submit' className='btn btn-primary btn-sm ml-2'>Add Quantity</button>
-                            </form>
+                            <div>
+                                <button onClick={handleDecrease} className='ml-2'><AiOutlineMinus/></button>
+                                <input type="text" ref={quantityRef} value={orderQuantity} className="border border-solid text-center w-8 h-5 mr-2 ml-2" />
+                                <button onClick={handleIncrease}><AiOutlinePlus/></button>
+                            </div>
                         </div>
                     </div>
                 </div>

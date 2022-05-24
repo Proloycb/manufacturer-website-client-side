@@ -55,7 +55,11 @@ const MyOrders = () => {
                                 <td>{order.price}</td>
                                 <td>
                                     {(order.price && !order.paid) && <Link to={`payment/${order._id}`}><button className='btn btn-xs btn-primary'>Pay</button></Link>}
-                                    {(order.price && order.paid) && <span className='text-success'>Paid</span>}
+                                    {(order.price && order.paid) && <div className='text-success'>
+                                        <p><span>Paid</span></p>
+                                        <p>Transaction id: <span>{order.transactionId}</span></p>
+
+                                    </div>}
                                 </td>
                                 <td>{!order.paid ? <label onClick={() => setCancelOrder(order)} htmlFor="cancel-confirm-modal" className='btn btn-xs btn-error'>Cancel</label> : <button className='btn btn-xs' disabled>Cancel</button>}</td>
                             </tr>)
