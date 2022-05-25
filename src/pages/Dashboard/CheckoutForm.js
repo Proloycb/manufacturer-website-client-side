@@ -9,7 +9,7 @@ const CheckoutForm = ({ order }) => {
     const [transactionId, setTransactionId] = useState('');
     const [status, setStatus] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const paidStatus = 'pending';
+    
 
     const { _id, price, userEmail, userName, orderQuantity } = order;
 
@@ -92,7 +92,7 @@ const CheckoutForm = ({ order }) => {
             })
             .then(res => res.json())
             .then(data => {
-                setStatus(paidStatus)
+                setStatus('pending')
                 console.log(data)
             })
         }

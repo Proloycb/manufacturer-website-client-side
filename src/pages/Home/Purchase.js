@@ -120,7 +120,7 @@ const Purchase = () => {
                         <div className='flex items-center'>Order Quantity:
                             <div>
                                 <button onClick={handleDecrease} className='ml-2'><AiOutlineMinus /></button>
-                                <input type="text" ref={quantityRef} value={orderQuantity} className="border border-solid text-center w-8 h-5 mr-2 ml-2" />
+                                <input type="text" ref={quantityRef} value={orderQuantity} readOnly className="border border-solid text-center w-8 h-5 mr-2 ml-2" />
                                 <button onClick={handleIncrease}><AiOutlinePlus /></button>
                             </div>
                         </div>
