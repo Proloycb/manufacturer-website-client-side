@@ -17,6 +17,7 @@ import ManageOrders from './pages/Dashboard/ManageOrders';
 import AddProduct from './pages/Dashboard/AddProduct';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import ManageProduct from './pages/Dashboard/ManageProduct';
+import RequireAdmin from './pages/Login/RequireAdmin';
 
 function App() {
   return (
@@ -29,21 +30,21 @@ function App() {
             <Purchase />
           </RequireAuth>
         } />
-        <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
-          <Route index element={<MyOrders/>}/>
-          <Route path='review' element={<AddReview/>}/>
-          <Route path='payment/:id' element={<Payment/>}/>
-          <Route path='profile' element={<MyProfile/>}/>
-          <Route path='manageOrder' element={<ManageOrders/>}/>
-          <Route path='product' element={<AddProduct/>}/>
-          <Route path='makeAdmin' element={<MakeAdmin/>}/>
-          <Route path='manageProduct' element={<ManageProduct/>}/>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<MyProfile />} />
+          <Route path='orders' element={<MyOrders />} />
+          <Route path='review' element={<AddReview />} />
+          <Route path='payment/:id' element={<Payment />} />
+          <Route path='manageOrder' element={<RequireAdmin><ManageOrders /></RequireAdmin>} />
+          <Route path='product' element={<RequireAdmin><AddProduct /></RequireAdmin>} />
+          <Route path='makeAdmin' element={<RequireAdmin><MakeAdmin /></RequireAdmin>} />
+          <Route path='manageProduct' element={<RequireAdmin><ManageProduct /></RequireAdmin>} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
       <Footer />
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
