@@ -137,7 +137,7 @@ const Purchase = () => {
                     <button type='submit' className='btn btn-primary text-white w-1/2 mx-auto' disabled={disable}>Order Now</button>
                 </form>
             </div>
-            <button onClick={() => navigate('/dashboard')} to='/dashboard' className='btn btn-primary w-1/4 ml-12 mt-3'>My Orders</button>
+            <button onClick={() => navigate('/dashboard/orders')} className='btn btn-primary w-1/4 ml-12 mt-3'>My Orders</button>
         </div>
     );
 };
