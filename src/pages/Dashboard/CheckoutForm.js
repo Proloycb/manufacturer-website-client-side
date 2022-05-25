@@ -92,7 +92,7 @@ const CheckoutForm = ({ order }) => {
             })
             .then(res => res.json())
             .then(data => {
-                setStatus('pending')
+                setStatus("paid")
                 console.log(data)
             })
         }

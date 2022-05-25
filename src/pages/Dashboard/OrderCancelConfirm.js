@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const orderCancelConfirm = ({ cancelOrder, setCancelOrder, refetch }) => {
+const OrderCancelConfirm = ({ cancelOrder, setCancelOrder, refetch }) => {
     const { _id, product } = cancelOrder;
 
     const handleDelete = () => {
@@ -38,4 +38,4 @@ const orderCancelConfirm = ({ cancelOrder, setCancelOrder, refetch }) => {
     );
 };
 
-export default orderCancelConfirm;
+export default OrderCancelConfirm;
