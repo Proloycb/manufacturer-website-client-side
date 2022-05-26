@@ -5,7 +5,7 @@ import { GoLocation} from 'react-icons/go';
 
 const Contact = () => {
     return (
-        <div className="min-h-screen bg-base-200">
+        <div className="py-16 bg-base-200">
             <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center items-center lg:gap-5">
                 <div className="text-center lg:text-left">
                     <h1 className="text-3xl font-bold mt-3">Call Us or Fill the Form</h1>
