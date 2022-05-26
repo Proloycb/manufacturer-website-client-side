@@ -11,7 +11,7 @@ const MyOrders = () => {
     const [cancelOrder, setCancelOrder] = useState(null);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const { data: orders, isLoading, refetch } = useQuery(['orders', user, navigate], () => fetch(`http://localhost:5000/orders?userEmail=${user.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery(['orders', user, navigate], () => fetch(`http://localhost:5000/order?userEmail=${user.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
