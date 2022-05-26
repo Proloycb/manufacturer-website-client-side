@@ -10,25 +10,25 @@ const About = () => {
                     <div className='grid grid-cols-2 gap-y-5 text-slate-500'>
                         <div class="form-control">
                             <label class="flex">
-                                <input type="checkbox" checked="checked" class="checkbox mr-4" />
+                                <input type="checkbox" checked="checked" class="checkbox lg:mr-4 mr-1" readOnly />
                                 <span class="label-text">ISO Certified Company</span>
                             </label>
                         </div>
                         <div class="form-control">
                             <label class="flex">
-                                <input type="checkbox" checked="checked" class="checkbox mr-4" />
+                                <input type="checkbox" checked="checked" class="checkbox lg:mr-4 mr-1" readOnly/>
                                 <span class="label-text">Manufacturer & Exporter</span>
                             </label>
                         </div>
                         <div class="form-control">
                             <label class="flex">
-                                <input type="checkbox" checked="checked" class="checkbox mr-4" />
+                                <input type="checkbox" checked="checked" class="checkbox lg:mr-4 mr-1" readOnly/>
                                 <span class="label-text">Provide Quality Products</span>
                             </label>
                         </div>
                         <div class="form-control">
                             <label class="flex">
-                                <input type="checkbox" checked="checked" class="checkbox mr-4" />
+                                <input type="checkbox" checked="checked" class="checkbox lg:mr-4 mr-1" readOnly/>
                                 <span class="label-text">Customer Relationship</span>
                             </label>
                         </div>
