@@ -37,7 +37,7 @@ const ManageOrders = () => {
         //     });
 
         const payment = { status: "shipped" }
-        fetch(`https://secure-wildwood-96014.herokuapp.com/orders/${id}`, {
+        fetch(`https://secure-wildwood-96014.herokuapp.com/order/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import UserRow from './UserRow';
 
 const MakeAdmin = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://secure-wildwood-96014.herokuapp.com/user',{
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://secure-wildwood-96014.herokuapp.com/users',{
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,7 +16,7 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-        <h1 className='text-2xl'>All Users: {users.length}</h1>
+        <h1 className='text-2xl'>All Users: {users?.length}</h1>
         <div className="overflow-x-auto">
             <table className="table w-full">
                 <thead>
@@ -29,7 +29,7 @@ const MakeAdmin = () => {
                 </thead>
                 <tbody>
                     {
-                        users.map((user, index) => <UserRow 
+                        users?.map((user, index) => <UserRow 
                             key={user._id}
                             index={index + 1}
                             user={user}

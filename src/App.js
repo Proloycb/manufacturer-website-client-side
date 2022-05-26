@@ -21,6 +21,7 @@ import RequireAdmin from './pages/Login/RequireAdmin';
 import useAdmin from './hooks/useAdmin';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
+import Notfound from './pages/Shared/Notfound.js/Notfound';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -47,6 +48,7 @@ function App() {
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='*' element={<Notfound/>}/>
       </Routes>
       <Footer />
       <ToastContainer />
