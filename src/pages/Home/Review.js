@@ -13,9 +13,9 @@ const Review = ({ review }) => {
                 <Rate rate={review?.rating} />
                 <p>{review.description}</p>
                 <div className="flex items-center">
-                    <div class="avatar placeholder">
-                        <div class="bg-neutral-focus text-neutral-content rounded-full w-8 mr-3">
-                            <span class="text-xl">{review?.name.slice(0, 1)}</span>
+                    <div className="avatar placeholder">
+                        <div className="bg-neutral-focus text-neutral-content rounded-full w-8 mr-3">
+                            <span className="text-xl">{review?.name.slice(0, 1)}</span>
                         </div>
                     </div>
                     <div>

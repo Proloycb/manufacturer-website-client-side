@@ -69,9 +69,9 @@ const MyProfile = () => {
             <div>
                 <h3 className='text-2xl mb-5'>My Profile</h3>
                 {
-                    users?.map(user => <div key={user._id} class="card w-96 bg-base-100 shadow-xl">
-                        <div class="card-body">
-                            <h2 class="card-title">Name: {user.name}</h2>
+                    users?.map(user => <div key={user._id} className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className="card-title">Name: {user.name}</h2>
                             <p>Email: {user.email}</p>
                             <p>Education: {user.education}</p>
                             <p>Phone: {user.phone}</p>

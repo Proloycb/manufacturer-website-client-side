@@ -110,14 +110,14 @@ const Purchase = () => {
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
             <div className='grid justify-items-center'>
                 <h2 className='text-3xl text-secondary text-center mb-5'>Purchase please</h2>
-                <div class="card lg:max-w-lg bg-base-100 shadow-xl">
+                <div className="card lg:max-w-lg bg-base-100 shadow-xl">
                     <figure><img src={img} alt="" className='w-1/2 h-52' /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">{name}</h2>
+                    <div className="card-body">
+                        <h2 className="card-title">{name}</h2>
                         <p>{description}</p>
                         <p><small>Available Quantity: {availableQuantity}</small></p>
                         <p><small>Minimum Order Quantity: {minimumOrderQuantity}</small></p>
-                        <p><small>Price: ${price}<span class="badge badge-sm ml-1">Per One</span></small></p>
+                        <p><small>Price: ${price}<span className="badge badge-sm ml-1">Per One</span></small></p>
                         <div className='flex items-center'>Order Quantity:
                             <div>
                                 <button onClick={handleDecrease} className='ml-2'><AiOutlineMinus /></button>

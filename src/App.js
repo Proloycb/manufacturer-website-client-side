@@ -22,6 +22,8 @@ import useAdmin from './hooks/useAdmin';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import Notfound from './pages/Shared/Notfound.js/Notfound';
+import Blogs from './pages/Blogs/Blogs';
+import Portfolio from './pages/Portfolio/Portfolio';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -36,6 +38,8 @@ function App() {
             <Purchase />
           </RequireAuth>
         } />
+        <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/portfolio' element={<Portfolio/>}/>
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
         {!admin ?<Route index element={<MyOrders />} /> : <Route index element={<MyProfile />} />}
           <Route path='review' element={<AddReview />} />

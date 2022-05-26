@@ -35,17 +35,17 @@ const AddReview = () => {
         <div>
             <h1 className='text-xl'>Please add a review</h1>
             <form className='mt-5' onSubmit={handleSubmit}>
-                <div class="form-control w-full max-w-xs">
-                    <label class="label">
-                        <span class="label-text">Rating</span>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Rating</span>
                     </label>
-                    <input type="text" ref={ratingRef} placeholder="Rating" class="input input-bordered w-full max-w-xs" />
+                    <input type="text" ref={ratingRef} placeholder="Rating" className="input input-bordered w-full max-w-xs" />
                 </div>
-                <div class="form-control w-full max-w-xs">
-                    <label class="label">
-                        <span class="label-text">Description</span>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Description</span>
                     </label>
-                    <textarea type="text" ref={descriptionRef} placeholder="Description" class="textarea textarea-bordered w-full max-w-xs" />
+                    <textarea type="text" ref={descriptionRef} placeholder="Description" className="textarea textarea-bordered w-full max-w-xs" />
                 </div>
                 <input className='btn btn-primary w-full max-w-xs mt-3' type="submit" value="Add Review" />
             </form>
