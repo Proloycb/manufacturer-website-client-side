@@ -5,7 +5,7 @@ const OrderCancelConfirm = ({ cancelOrder, setCancelOrder, refetch }) => {
     const { _id, product } = cancelOrder;
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/orders/${_id}`, {
+        fetch(`https://secure-wildwood-96014.herokuapp.com/orders/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

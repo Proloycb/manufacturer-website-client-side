@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import Review from './Review';
 
 const Reviews = () => {
-    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('http://localhost:5000/review', {
+    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('https://secure-wildwood-96014.herokuapp.com/review', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

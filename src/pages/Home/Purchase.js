@@ -17,7 +17,7 @@ const Purchase = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/parts/${id}`)
+        fetch(`https://secure-wildwood-96014.herokuapp.com/parts/${id}`)
             .then(res => res.json())
             .then(data => {
                 setOrderQuantity(parseInt(data.minimumOrderQuantity));
@@ -72,12 +72,11 @@ const Purchase = () => {
             product: name,
             price: totalPrice,
             orderQuantity: orderQuantity,
-            paymentStatus: "pending",
-            orderStatus: "placed"
+            status: "unpaid",
         }
 
         // update quantity 
-        // const url = `http://localhost:5000/updateQuantity/${id}`;
+        // const url = `https://secure-wildwood-96014.herokuapp.com/updateQuantity/${id}`;
         // fetch(url, {
         //     method: "PUT",
         //     headers: {
@@ -92,7 +91,7 @@ const Purchase = () => {
 
 
         // booking order
-        fetch('http://localhost:5000/orders', {
+        fetch('https://secure-wildwood-96014.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

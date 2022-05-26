@@ -5,7 +5,7 @@ import ProductDeleteConfirm from './ProductDeleteConfirm';
 
 const ManageProduct = () => {
     const [deleteProduct, setDeleteProduct] = useState(null);
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch(`http://localhost:5000/parts`, {
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch(`https://secure-wildwood-96014.herokuapp.com/parts`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import Part from './Part';
 
 const Parts = () => {
-    const { data: products, isLoading } = useQuery('parts', () => fetch('http://localhost:5000/parts')
+    const { data: products, isLoading } = useQuery('parts', () => fetch('https://secure-wildwood-96014.herokuapp.com/parts')
         .then(res => res.json())
     )
 

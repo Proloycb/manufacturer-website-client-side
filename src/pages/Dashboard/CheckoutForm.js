@@ -7,14 +7,13 @@ const CheckoutForm = ({ order }) => {
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
     const [transactionId, setTransactionId] = useState('');
-    const [status, setStatus] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     
 
-    const { _id, price, userEmail, userName, orderQuantity } = order;
+    const { _id, price, userEmail, userName} = order;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://secure-wildwood-96014.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -79,11 +78,11 @@ const CheckoutForm = ({ order }) => {
             const payment = {
                 order: _id,
                 transactionId: paymentIntent.id,
-                status: status
+                status: "pending"
             }
             //
-            fetch(`http://localhost:5000/orders/${_id}`, {
-                method: 'PATCH',
+            fetch(`https://secure-wildwood-96014.herokuapp.com/orders/${_id}`, {
+                method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -92,7 +91,6 @@ const CheckoutForm = ({ order }) => {
             })
             .then(res => res.json())
             .then(data => {
-                setStatus("paid")
                 console.log(data)
             })
         }

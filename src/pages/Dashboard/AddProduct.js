@@ -30,7 +30,7 @@ const AddProduct = () => {
                     }
 
                     // send to your database
-                    fetch('http://localhost:5000/parts', {
+                    fetch('https://secure-wildwood-96014.herokuapp.com/parts', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
