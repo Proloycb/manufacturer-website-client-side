@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import Loading from '../Shared/Loading/Loading';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -60,8 +58,6 @@ const Purchase = () => {
         const address = event.target.address.value;
         const newPrice = parseInt(price);
         const totalPrice = newPrice * orderQuantity;
-        const quantity = parseInt(availableQuantity);
-        const updatedQuantity = quantity - orderQuantity
 
         const orders = {
             productId: id,
@@ -74,21 +70,6 @@ const Purchase = () => {
             orderQuantity: orderQuantity,
             status: "unpaid",
         }
-
-        // update quantity 
-        // const url = `https://secure-wildwood-96014.herokuapp.com/updateQuantity/${id}`;
-        // fetch(url, {
-        //     method: "PUT",
-        //     headers: {
-        //         "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify({ updatedQuantity }),
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         refetch();
-        //     });
-
 
         // booking order
         fetch('https://secure-wildwood-96014.herokuapp.com/orders', {

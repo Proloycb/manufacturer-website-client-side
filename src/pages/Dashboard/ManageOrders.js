@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading/Loading';
 import OrderCancelConfirm from './OrderCancelConfirm';
 
 const ManageOrders = () => {
+    const { id } = useParams();
     const [cancelOrder, setCancelOrder] = useState(null);
+    const [product, setProduct] = useState({});
+    const [order, setOrder] = useState({});
+    const [quantity, setQuantity] = useState();
+    const [orderQuantity, setOrderQuantity] = useState();
     const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`https://secure-wildwood-96014.herokuapp.com/orders`, {
         method: 'GET',
         headers: {
@@ -15,29 +21,52 @@ const ManageOrders = () => {
         .then(res => res.json())
     );
 
+    useEffect(() => {
+        fetch(`https://secure-wildwood-96014.herokuapp.com/parts/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setQuantity(parseInt(data.availableQuantity));
+                setProduct(data);
+            })
+    }, [id]);
+
+    useEffect(() => {
+        fetch(`https://secure-wildwood-96014.herokuapp.com/orders/${id}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                setOrderQuantity(parseInt(data.orderQuantity));
+                setOrder(data);
+            })
+    }, [id]);
+
     if (isLoading) {
         return <Loading />
     }
 
-    const handleShipped = (id) => {
-
+    const handleShipped = (_id) => {
+        const updatedQuantity = quantity - orderQuantity;
 
         // update quantity 
-        // const url = `https://secure-wildwood-96014.herokuapp.com/updateQuantity/${id}`;
-        // fetch(url, {
-        //     method: "PUT",
-        //     headers: {
-        //         "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify({ updatedQuantity }),
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         refetch();
-        //     });
+        const url = `https://secure-wildwood-96014.herokuapp.com/updateQuantity/${id}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify({ updatedQuantity }),
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch();
+            });
 
         const payment = { status: "shipped" }
-        fetch(`https://secure-wildwood-96014.herokuapp.com/order/${id}`, {
+        fetch(`https://secure-wildwood-96014.herokuapp.com/order/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
